@@ -50,7 +50,16 @@ function module.start()
       end
       --      print("Heap Available:" .. node.heap())
       --      print("33")
-      local majorVer, minorVer, devVer, chipid, flashid, flashsize, flashmode, flashspeed = node.info()
+      -- git_branch, git_release, git_commit_id, node_version_minor, git_commit_dts, node_version_revision, node_version_major
+      local infoInfoSwVersion = node.info("sw_version")
+      local majorVer = infoInfoSwVersion.node_version_major
+      local minorVer = infoInfoSwVersion.node_version_minor
+      local devVer = infoInfoSwVersion.node_version_revision
+
+      -- flash_size, chip_id, flash_mode, flash_speed, flash_id
+      local infoInfoHw = node.info("hw")
+      local chipid = infoInfoHw.chip_id
+      
       --      print("35")
       print("Status: "..status.."\nTemp: "..temp.."\nHumi: "..humi.."\nMoisture: "..moist_value..
       "\nBaro: "..baro.."\nBaro locl: "..barol.."\nDew: "..dew.."\n")
