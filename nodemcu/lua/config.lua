@@ -1,7 +1,7 @@
 local module = {}
 
 -- Make your adjustments below here: DHT, DHT-YL, BME, BME-GD, BME-BAT
-module.Model = "BME-BAT"
+module.Model = "BME"
 module.Version = "1.6"
 
 -- LED state

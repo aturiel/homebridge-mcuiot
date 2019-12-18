@@ -30,7 +30,7 @@ function module.read()
     else
       status = 1
     end
-    print( "BME280 Read Error %d", device )
+    print( "BME280 Read Error", device )
 
   end
 
