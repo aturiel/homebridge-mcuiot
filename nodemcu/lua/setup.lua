@@ -14,8 +14,8 @@ local function wifi_wait_ip()
     wifiWait:unregister()
     print("\n====================================")
     print("Name is:         "..config.ID)
-    print("ESP8266 mode is: " .. wifi.getmode())
-    print("MAC address is:  " .. wifi.ap.getmac())
+    print("ESP8266 mode is: "..wifi.getmode())
+    print("MAC address is:  "..wifi.ap.getmac())
     print("IP is:           "..wifi.sta.getip())
     print("====================================")
     led.connected()
@@ -58,13 +58,11 @@ end
 
 function module.start()
   if string.find(config.Model, "BAT") then
-    if adc.force_init_mode(adc.INIT_VDD33)
-    then
+    if adc.force_init_mode(adc.INIT_VDD33) then
       node.restart()
     end
   else
-    if adc.force_init_mode(adc.INIT_ADC)
-    then
+    if adc.force_init_mode(adc.INIT_ADC) then
       node.restart()
     end
   end
