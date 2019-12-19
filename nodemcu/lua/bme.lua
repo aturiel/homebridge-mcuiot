@@ -4,6 +4,15 @@ function module.read()
 
   local alt = 706 -- altitude of the measurement place
   i2c.setup(0,config.bme280sda, config.bme280scl,i2c.SLOW)
+  -- https://github.com/letscontrolit/ESPEasy/issues/164
+    -- bme.setSampling(Adafruit_BME280::MODE_FORCED, 
+    --  Adafruit_BME280::SAMPLING_X1, // temperature 
+    --  Adafruit_BME280::SAMPLING_X1, // pressure 
+    --  Adafruit_BME280::SAMPLING_X1, // humidity 
+    --  Adafruit_BME280::FILTER_OFF
+    -- ); 
+    -- // suggested rate is 1/60Hz (1m) 
+    -- delayTime = 60000; // in milliseconds 
   local device = bme280.setup()
   local status, temp, humi, baro, barol, dew
 
